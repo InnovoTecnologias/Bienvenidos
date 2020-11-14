@@ -1,4 +1,5 @@
 ﻿using BienvenidosWebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,12 +32,22 @@ namespace BienvenidosWebAPI.Data
 
         public void CrearPais(Pais p)
         {
-            throw new NotImplementedException();
+            if (p == null)
+            {
+                throw new ArgumentNullException(nameof(p));
+            }
+
+            db.Pais.Add(p);
         }
 
         public void CrearProvincia(Provincia p)
         {
-            throw new NotImplementedException();
+            if (p == null)
+            {
+                throw new ArgumentNullException(nameof(p));
+            }
+
+            db.Provincia.Add(p);
         }
 
         public void EliminarCentro(Centro c)
@@ -63,9 +74,29 @@ namespace BienvenidosWebAPI.Data
             return db.Centro.FirstOrDefault(p => p.Id == id);
         }
 
+        public Pais TraerPais(int id)
+        {
+            return db.Pais.FirstOrDefault(p => p.Id == id);
+        }
+
+        public Provincia TraerProvincia(int id)
+        {
+            return db.Provincia.FirstOrDefault(p => p.Id == id);
+        }
+
+        public IEnumerable<Provincia> TraerTodasProvincias()
+        {
+            return db.Provincia.ToList();
+        }
+
         public IEnumerable<Centro> TraerTodosCentros()
         {
             return db.Centro.ToList();
+        }
+
+        public IEnumerable<Pais> TraerTodosPaises()
+        {
+            return db.Pais.ToList();
         }
     }
 }
