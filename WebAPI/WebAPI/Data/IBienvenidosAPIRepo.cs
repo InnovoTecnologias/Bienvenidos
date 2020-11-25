@@ -19,9 +19,15 @@ namespace BienvenidosWebAPI.Data
 
         // Países
         void CrearPais(Pais p);
+        IEnumerable<Pais> TraerTodosPaises();
+        Pais TraerPais(int id);
+
 
         // Provincias
         void CrearProvincia(Provincia p);
+        IEnumerable<Provincia> TraerTodasProvincias();
+        Provincia TraerProvincia(int id);
+
 
         // Ciudades
         void CrearCiudad(Ciudad c);

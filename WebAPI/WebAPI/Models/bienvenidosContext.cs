@@ -8,6 +8,7 @@ namespace BienvenidosWebAPI.Models
     {
         public bienvenidosContext()
         {
+
         }
 
         public bienvenidosContext(DbContextOptions<bienvenidosContext> options)
