@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
         {
             List<ProvinciaLeerDTO> provinciasLista = new List<ProvinciaLeerDTO>();
             var provinciaItems = _repository.TraerTodasProvincias();
-            foreach(Provincia p in provinciaItems)
+            foreach (Provincia p in provinciaItems)
             {
                 var pro = new ProvinciaLeerDTO();
                 pro.Nombre = p.Nombre;
@@ -35,9 +35,15 @@ namespace WebAPI.Controllers
                 pro.Idpais = p.Idpais;
                 pro.Pais = _repository.TraerPais(p.Idpais).Nombre;
                 provinciasLista.Add(pro);
-                
+
             }
             return Ok(provinciasLista);
+        }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<ProvinciaLeerDTO>>> TraerProvinciaIdPais(int id)
+        {
+            var provinciaItems = _repository.TraerProvinciaIdPais(id);
+            return Ok(_mapper.Map<IEnumerable<ProvinciaLeerDTO>>(provinciaItems));
         }
     }
 }

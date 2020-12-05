@@ -26,6 +26,7 @@ namespace BienvenidosWebAPI.Data
         // Provincias
         void CrearProvincia(Provincia p);
         IEnumerable<Provincia> TraerTodasProvincias();
+        IEnumerable<Provincia> TraerProvinciaIdPais(int id);
         Provincia TraerProvincia(int id);
 
 

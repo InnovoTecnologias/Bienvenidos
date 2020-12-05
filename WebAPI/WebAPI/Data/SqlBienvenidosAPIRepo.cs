@@ -84,6 +84,11 @@ namespace BienvenidosWebAPI.Data
             return db.Provincia.FirstOrDefault(p => p.Id == id);
         }
 
+        public IEnumerable<Provincia> TraerProvinciaIdPais(int id)
+        {
+            return db.Provincia.Where(P => P.Idpais == id);
+        }
+
         public IEnumerable<Provincia> TraerTodasProvincias()
         {
             return db.Provincia.ToList();
