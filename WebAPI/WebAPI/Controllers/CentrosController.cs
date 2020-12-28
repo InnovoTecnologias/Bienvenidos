@@ -43,6 +43,14 @@ namespace BienvenidosWebAPI.Controllers
             return Ok(_mapper.Map<IEnumerable<CentroLeerDTO>>(commandItems));
         }
 
+        // GET: api/Centros/ciudad/id
+        // Traer centro por id de ciudad
+        [HttpGet("ciudad/{id}")]
+        public async Task<ActionResult<IEnumerable<CentroLeerDTO>>> GetCentrosIdCiudad(int id)
+        {
+            return Ok(_mapper.Map<IEnumerable<CentroLeerDTO>>(_repository.TraerCentroIdCiudad(id)));
+        }
+
         /*
         // GET: api/Centros/5
         [HttpGet("{id}")]
